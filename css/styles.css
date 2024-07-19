@@ -617,6 +617,8 @@ img {
   font-weight: 500;
   padding: 24px 0 16px 0;
   margin-bottom: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
 }
 
 .modal-container-form {
