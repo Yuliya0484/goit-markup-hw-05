@@ -252,10 +252,10 @@ img {
   margin-bottom: 8px;
 }
 
-.benefits-icons {
+/* .benefits-icons {
   width: 100%;
   height: 100%;
-}
+} */
 
 .benefits-heading {
   text-align: left;
@@ -308,6 +308,7 @@ img {
 
 .team-text {
   text-align: center;
+  margin-bottom: 8px;
 }
 
 .team-list-icons {
@@ -484,12 +485,24 @@ img {
   height: 100%;
   position: fixed;
   top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgba(46, 47, 66, 0.4);
+}
+
+.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .modal {
   width: 408px;
   min-height: 584px;
-  position: relative;
+  position: absolute;
   padding: 24px;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
     0 2px 1px 0 rgba(0, 0, 0, 0.2);
@@ -497,6 +510,7 @@ img {
   background-color: #fcfcfc;
   top: 50%;
   left: 50%;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transform: translate(-50%, -50%);
 }
 
@@ -504,24 +518,31 @@ img {
   border-radius: 50%;
   width: 24px;
   height: 24px;
-  top: 32px;
-  right: 32px;
   background-color: #e7e9fc;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  /* position: absolute; */
-  display: block;
-  margin-left: auto;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-close-btn:hover {
+.modal-close-btn:hover,
+.modal-close-btn:focus {
   background-color: #404bbf;
+  border: none;
 }
 
 .close {
   fill: #2e2f42;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.close:hover {
+.close:hover,
+.close:focus {
   fill: #fff;
 }
 
@@ -533,10 +554,7 @@ img {
   margin-bottom: 16px;
 }
 
-.modal-form {
-}
-
-.modal-container-name {
+.modal-container-form {
   margin-bottom: 8px;
 }
 
@@ -544,9 +562,11 @@ img {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 12px;
-  line-height: 1.16667;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   color: #8e8f99;
+  display: block;
+  margin-bottom: 4px;
 }
 
 .field-icon-wrap {
@@ -562,6 +582,7 @@ img {
   padding-right: 16px;
   padding-left: 38px;
   outline: transparent;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-input:focus {
@@ -578,10 +599,15 @@ img {
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-icon:focus {
   fill: #4d5ae5;
+}
+
+.comment-wrap {
+  margin-bottom: 16px;
 }
 
 .modal-comment {
@@ -589,8 +615,72 @@ img {
   border-radius: 4px;
   width: 100%;
   height: 120px;
+  font-size: 12px;
+  line-height: 1.17px;
+  letter-spacing: 0.04em;
+  color: rgba(46, 47, 66, 0.4);
   background-color: transparent;
-  padding-top: 8px;
-  padding-left: 16px;
+  padding: 8px 16px;
   outline: transparent;
+  resize: none;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-comment:focus {
+  border-color: #4d5ae5;
+}
+
+.check-wrap {
+  margin-bottom: 24px;
+}
+
+.checkbox-text {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: #8e8f99;
+}
+
+.checkbox-text span {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  fill: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.check:checked + .checkbox-text span {
+  background-color: #404bbf;
+  border: none;
+  fill: #f4f4fd;
+}
+
+.checkbox-accent {
+  line-height: 1.33;
+  text-decoration: underline;
+  color: #4d5ae5;
+}
+
+.modal-button {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  min-width: 169px;
+  height: 56px;
+  background: #4d5ae5;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
